@@ -1,14 +1,14 @@
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory
-              (expand-file-name (concat user-emacs-directory path))))
-        (add-to-list 'load-path default-directory)
-        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-            (normal-top-level-add-subdirs-to-load-path))))))
+;; (defun add-to-load-path (&rest paths)
+;;   (let (path)
+;;     (dolist (path paths paths)
+;;       (let ((default-directory
+;;               (expand-file-name (concat user-emacs-directory path))))
+;;         (add-to-list 'load-path default-directory)
+;;         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+;;             (normal-top-level-add-subdirs-to-load-path))))))
 
 ;; 追加
-(add-to-load-path "elisp" "conf" "public_repos" "site-elisp")
+;;(add-to-load-path "elisp" "conf" "public_repos" "site-elisp")
 
 
 ;; package.el を使ってパッケージ管理
@@ -71,7 +71,7 @@
  '(evil-collection-company-use-tng nil)
  '(package-selected-packages
    (quote
-    (evil-goggles treemacs-evil treemacs helm request gitignore-mode gitignore-templates evil-magit magit auto-yasnippet yasnippet-snippets ivy-ghq origami helpful lispyville lispy evil-traces evil-embrace evil-commentary evil-lion evil-matchit evil-matchhit evil-anzu evil-visualstar evil-collection evil spaceline spaceline-config powerline company-yasnippet format-all emacs-format-all-the-code quickrun volatile-highlights beacon company-quickhelp all-the-icons-ivy-rich expand-region which-key paredit popup google-translate-default-ui google-translate hydra all-the-icons-ivy smartparens doom-themes counsel evil-nerd-commenter undohist ivy-prescient prescient ivy use-package)))
+    (all-the-icons-dired evil-goggles treemacs-evil treemacs helm request gitignore-mode gitignore-templates evil-magit magit auto-yasnippet yasnippet-snippets ivy-ghq origami helpful lispyville lispy evil-traces evil-embrace evil-commentary evil-lion evil-matchit evil-matchhit evil-anzu evil-visualstar evil-collection evil spaceline spaceline-config powerline company-yasnippet format-all emacs-format-all-the-code quickrun volatile-highlights beacon company-quickhelp all-the-icons-ivy-rich expand-region which-key paredit popup google-translate-default-ui google-translate hydra all-the-icons-ivy smartparens doom-themes counsel evil-nerd-commenter undohist ivy-prescient prescient ivy use-package)))
  '(quickrun-focus-p nil))
 
 (custom-set-faces
@@ -79,6 +79,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-goggles-yank-face ((t (:inherit (quote shadow)))))
  '(ivy-minibuffer-match-face-1 ((((class color) (background dark)) :foreground "#bd93f9"))))
 
 
@@ -984,3 +985,8 @@
 ;; (use-package treemacs-evil
 ;;   :ensure t
 ;;   :after treemacs evil)
+
+(use-package all-the-icons-dired
+  :ensure t
+  :hook
+  (dired-mode . all-the-icons-dired-mode))
