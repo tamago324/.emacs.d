@@ -1,0 +1,17 @@
+.recentf
+recentf
+elpa/
+undohist/
+.#.*
+auto-save-list/
+info/
+*~
+bookmarks
+eshell
+quelpa/
+.python-environments/
+kkcrc
+.cache/
+transient/
+url/
+server/
